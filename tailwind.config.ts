@@ -36,8 +36,13 @@ const config: Config = {
         '128': '32rem',
       },
       borderRadius: {
-        '2xl': '1rem',
-        '3xl': '1.5rem',
+        '2xl': '2rem',
+        '3xl': '3rem',
+        '4xl': '4rem',
+        '6xl': '6rem',
+        'b-4xl': '4rem',
+        'r-6xl': '6rem',
+        'l-6xl': '6rem',
       },
       boxShadow: {
         'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.1)',

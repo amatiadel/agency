@@ -3,6 +3,7 @@ import Hero3 from './components/Hero3'
 import Projects from './components/Projects'
 import Process from './components/Process'
 import ServicesPricing from './components/ServicesPricing'
+import Contact from './components/Contact'
 import QuizForm from './components/QuizForm'
 import Footer from './components/Footer'
 
@@ -16,8 +17,9 @@ export default function Home() {
         <Process />
         <ServicesPricing />
         <QuizForm />
-        <Footer />
+        <Contact />
       </main>
+      <Footer />
     </>
   )
 }

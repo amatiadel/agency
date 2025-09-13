@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
   return (
      <header
        className={cn(
-         'bg-muted rounded-b-2xl',
+         'bg-muted rounded-b-4xl',
          className
        )}
        style={{
@@ -57,8 +57,8 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
-              <div className="w-6 h-6 bg-white rounded-sm relative">
+            <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center">
+              <div className="w-6 h-6 bg-white rounded relative">
                 <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-white rounded-full"></div>
               </div>
             </div>
@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={toggleMenu}
-            className="md:hidden p-2 hover:bg-gray-700 transition-colors duration-200 rounded-lg"
+            className="md:hidden p-2 hover:bg-gray-700 transition-colors duration-200 rounded-2xl"
           >
             {isMenuOpen ? <X size={24} className="text-gray-300" /> : <Menu size={24} className="text-gray-300" />}
           </motion.button>

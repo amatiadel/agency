@@ -55,7 +55,7 @@ const Process: React.FC<ProcessProps> = ({ className }) => {
   ]
 
   return (
-    <section className={cn("pb-20 px-4 sm:px-6 lg:px-8 xl:px-4 hidden sm:block", className)} style={{ paddingTop: '1px' }}>
+    <section id="process" className={cn("pb-20 px-4 sm:px-6 lg:px-8 xl:px-4 hidden sm:block", className)} style={{ paddingTop: '1px' }}>
       <div className="max-w-6xl mx-auto lg:max-w-none xl:max-w-none">
         <motion.div
           variants={containerVariants}

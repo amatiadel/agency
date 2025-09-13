@@ -10,6 +10,34 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Stretch Sans Free';
+  src: url('/STRRETCH SANS FREE.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ambidexter';
+  src: url('/ambidexter_regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.stretch-font {
+  font-family: 'Stretch Sans Free', 'Arial Black', 'Impact', sans-serif;
+  font-weight: 900;
+  font-display: swap;
+}
+
+.ambidexter-font {
+  font-family: 'Ambidexter', 'Arial Black', 'Impact', sans-serif;
+  font-weight: normal;
+  font-display: swap;
+}
+
 .druk-font {
   font-family: 'Druk Wide Cyr', 'Arial Black', sans-serif;
   font-weight: 700;
@@ -78,7 +106,7 @@ a {
 
 ::-webkit-scrollbar-thumb {
   background: #404040;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -145,7 +173,7 @@ a {
   /* color used to softly clip top and bottom of the .words container */
   background-color: var(--muted);
   padding: 1rem 2rem;
-  border-radius: 1.25rem;
+  border-radius: 2.5rem;
   width: 100%;
   min-height: 80vh;
   display: flex;
@@ -168,7 +196,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 8px;
+  border-radius: 16px;
 }
 
 @media (max-width: 639px) {
@@ -348,6 +376,9 @@ a {
 }
 
 
+/* === Runaway Button Animation === */
+/* Position-based animation handled by React state and CSS transitions */
+
 /* === Theme Switch Styles === */
 /* From Uiverse.io by satyamchaudharydev */ 
 /* The switch - the box around the slider */
@@ -381,7 +412,7 @@ a {
   bottom: 0;
   background-color: #f4f4f5;
   transition: .4s;
-  border-radius: 30px;
+  border-radius: 60px;
 }
 
 .slider:before {
@@ -389,7 +420,7 @@ a {
   content: "";
   height: var(--size-of-icon,1.4em);
   width: var(--size-of-icon,1.4em);
-  border-radius: 20px;
+  border-radius: 40px;
   left: var(--slider-offset,0.3em);
   top: 50%;
   transform: translateY(-50%);

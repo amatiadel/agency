@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface FooterProps {
@@ -9,165 +8,125 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ className }) => {
-  const currentYear = new Date().getFullYear()
-
-  const footerLinks = {
-    services: [
-      { label: 'Web Design', href: '#' },
-      { label: 'Development', href: '#' },
-      { label: 'Marketing', href: '#' },
-      { label: 'Branding', href: '#' },
-    ],
-    company: [
-      { label: 'About Us', href: '#' },
-      { label: 'Our Team', href: '#' },
-      { label: 'Careers', href: '#' },
-      { label: 'Contact', href: '#' },
-    ],
-    resources: [
-      { label: 'Blog', href: '#' },
-      { label: 'Case Studies', href: '#' },
-      { label: 'Portfolio', href: '#' },
-      { label: 'FAQ', href: '#' },
-    ],
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: 'easeOut',
+        staggerChildren: 0.2,
+      },
+    },
   }
 
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  ]
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+  }
 
   return (
-    <footer className={cn('bg-gray-900 text-white', className)}>
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-          {/* Company Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-1"
-          >
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
-              </div>
-              <span className="text-xl font-bold">Agency</span>
-            </div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              We create exceptional digital experiences that help businesses grow and succeed in the modern marketplace.
-            </p>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3 text-gray-400">
-                <Mail size={16} />
-                <span>hello@agency.com</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-400">
-                <Phone size={16} />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-400">
-                <MapPin size={16} />
-                <span>123 Business St, City, State</span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Services */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Company */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="text-lg font-semibold mb-6">Company</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Resources */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h3 className="text-lg font-semibold mb-6">Resources</h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* Bottom Section */}
+    <footer className={cn('w-full py-16 px-1 sm:px-2 lg:px-4', className)}>
+      <div className="max-w-none mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-t border-gray-800 mt-12 pt-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="rounded-3xl p-10 lg:p-16 shadow-2xl"
+          style={{ backgroundColor: '#1A1A1A' }}
         >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
-              © {currentYear} Agency. All rights reserved.
+          {/* Header Section */}
+          <motion.div variants={itemVariants} className="relative flex flex-col lg:flex-row justify-between items-center mb-12">
+            {/* Logo */}
+            <div className="mb-6 lg:mb-0">
+              <a 
+                href="#top" 
+                className="text-white text-3xl lg:text-4xl font-bold druk-font hover:text-blue-400 transition-colors duration-200 cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                студия
+              </a>
             </div>
-            
-            <div className="flex items-center space-x-6">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                  aria-label={social.label}
+
+            {/* Contact Info - Centered */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 text-center mb-6 lg:mb-0">
+              <p className="text-gray-300 text-lg">
+                Ваши предложения: <a 
+                  href="mailto:info@agency.ru" 
+                  className="text-white text-2xl lg:text-3xl font-bold hover:text-blue-400 transition-colors duration-200"
                 >
-                  <social.icon size={20} />
-                </motion.a>
-              ))}
+                  info@agency.ru
+                </a>
+              </p>
             </div>
-          </div>
+
+            {/* Navigation Links */}
+            <div className="flex flex-col sm:flex-row gap-6 lg:gap-8">
+              <a href="#projects" className="text-gray-300 hover:text-white transition-colors duration-200 text-lg">
+                Примеры работ
+              </a>
+              <a href="#process" className="text-gray-300 hover:text-white transition-colors duration-200 text-lg">
+                По шагам. Как все пройдет
+              </a>
+              <a href="#services" className="text-gray-300 hover:text-white transition-colors duration-200 text-lg">
+                Сколько стоит
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Bottom Section */}
+          <motion.div variants={itemVariants} className="relative flex flex-col lg:flex-row justify-between items-center pt-8 gap-4">
+            {/* Privacy Policy */}
+            <a 
+              href="#privacy" 
+              className="text-gray-300 hover:text-white transition-colors duration-200 text-lg order-1 lg:order-1"
+            >
+              Политика конфиденциальности
+            </a>
+
+            {/* CTA Buttons - Centered */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-4 order-2 lg:order-2">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-white px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-xl"
+                style={{ backgroundColor: '#FF3D00' }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E03500'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FF3D00'}
+              >
+                Задать вопрос в Telegram
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-white px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-xl"
+                style={{ backgroundColor: '#FF3D00' }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E03500'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FF3D00'}
+              >
+                Запросить расчет стоимости
+              </motion.button>
+            </div>
+
+            {/* Legal Information */}
+            <div className="text-gray-300 text-sm lg:text-base text-center lg:text-right order-3 lg:order-3">
+              <p>ИП Мокрани Кристина Алехсандровна</p>
+              <p>ИНН 246413832108 | ОГРНИП 317246800066961</p>
+            </div>
+          </motion.div>
         </motion.div>
-        </div>
       </div>
     </footer>
   )

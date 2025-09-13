@@ -130,7 +130,7 @@ const Hero3: React.FC<Hero3Props> = ({ className }) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-accent text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent/90 transition-colors duration-200 shadow-lg druk-font"
+                className="w-full sm:w-auto bg-accent text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-accent/90 transition-colors duration-200 shadow-lg druk-font"
               >
                 Узнать стоимость
               </motion.button>
@@ -138,7 +138,7 @@ const Hero3: React.FC<Hero3Props> = ({ className }) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto border-2 border-accent text-accent px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent hover:text-white transition-colors duration-200 druk-font"
+                className="w-full sm:w-auto border-2 border-accent text-accent px-8 py-4 rounded-2xl font-bold text-lg hover:bg-accent hover:text-white transition-colors duration-200 druk-font"
               >
                 Напишите нам, мы онлайн
               </motion.button>

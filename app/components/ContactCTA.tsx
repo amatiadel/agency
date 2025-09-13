@@ -161,7 +161,7 @@ const ContactCTA: React.FC<ContactCTAProps> = ({ className }) => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-accent focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-4xl focus:ring-2 focus:ring-accent focus:border-transparent transition-colors duration-200"
                       placeholder="John Doe"
                     />
                   </div>
@@ -177,7 +177,7 @@ const ContactCTA: React.FC<ContactCTAProps> = ({ className }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-accent focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-4xl focus:ring-2 focus:ring-accent focus:border-transparent transition-colors duration-200"
                       placeholder="john@company.com"
                     />
                   </div>
@@ -207,7 +207,7 @@ const ContactCTA: React.FC<ContactCTAProps> = ({ className }) => {
                       type="button"
                       onClick={() => handleContactMethodChange('email')}
                       className={cn(
-                        'flex items-center space-x-2 px-4 py-2 rounded-2xl border-2 transition-colors duration-200',
+                        'flex items-center space-x-2 px-4 py-2 rounded-4xl border-2 transition-colors duration-200',
                         formData.contactMethod === 'email'
                           ? 'border-accent bg-accent text-white'
                           : 'border-gray-300 text-gray-700 hover:border-accent'
@@ -220,7 +220,7 @@ const ContactCTA: React.FC<ContactCTAProps> = ({ className }) => {
                       type="button"
                       onClick={() => handleContactMethodChange('phone')}
                       className={cn(
-                        'flex items-center space-x-2 px-4 py-2 rounded-2xl border-2 transition-colors duration-200',
+                        'flex items-center space-x-2 px-4 py-2 rounded-4xl border-2 transition-colors duration-200',
                         formData.contactMethod === 'phone'
                           ? 'border-accent bg-accent text-white'
                           : 'border-gray-300 text-gray-700 hover:border-accent'
@@ -243,7 +243,7 @@ const ContactCTA: React.FC<ContactCTAProps> = ({ className }) => {
                     onChange={handleInputChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-accent focus:border-transparent transition-colors duration-200 resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-4xl focus:ring-2 focus:ring-accent focus:border-transparent transition-colors duration-200 resize-none"
                     placeholder="Tell us about your project..."
                   />
                 </div>

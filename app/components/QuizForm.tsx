@@ -149,7 +149,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
             <select
               value={formData.fieldOfActivity}
               onChange={(e) => handleInputChange('fieldOfActivity', e.target.value)}
-              className="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white text-gray-900"
+              className="w-full p-4 border border-gray-300 rounded-2xl text-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white text-gray-900"
             >
               <option value="">Выберите сферу деятельности</option>
               <option value="construction">Строительство</option>
@@ -179,7 +179,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
               value={formData.keyTask}
               onChange={(e) => handleInputChange('keyTask', e.target.value)}
               placeholder="Запишите задачу в поле ниже"
-              className="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-accent focus:border-accent h-32 resize-none bg-white text-gray-900 placeholder-gray-500"
+              className="w-full p-4 border border-gray-300 rounded-2xl text-lg focus:ring-2 focus:ring-accent focus:border-accent h-32 resize-none bg-white text-gray-900 placeholder-gray-500"
             />
           </div>
         )
@@ -324,7 +324,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                 <select
                   value={formData.contactMethod}
                   onChange={(e) => handleInputChange('contactMethod', e.target.value)}
-                  className="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white text-gray-900"
+                  className="w-full p-4 border border-gray-300 rounded-2xl text-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white text-gray-900"
                 >
                   <option value="">Выберите способ связи</option>
                   <option value="telegram">Telegram</option>
@@ -339,7 +339,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                   Номер телефона, к которому привязан мессенджер
                 </label>
                 <div className="flex">
-                  <div className="flex items-center px-4 border border-gray-300 border-r-0 rounded-l-lg bg-gray-50">
+                  <div className="flex items-center px-4 border border-gray-300 border-r-0 rounded-l-2xl bg-gray-50">
                     <span className="text-lg">🇷🇺</span>
                     <span className="ml-2 text-lg text-gray-900">+7</span>
                   </div>
@@ -348,7 +348,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                     value={formData.phoneNumber}
                     onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
                     placeholder="(000) 000-00-00"
-                    className="flex-1 p-4 border border-gray-300 rounded-r-lg text-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white text-gray-900"
+                    className="flex-1 p-4 border border-gray-300 rounded-r-2xl text-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white text-gray-900"
                   />
                 </div>
               </div>
@@ -359,7 +359,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   placeholder="Ваше имя"
-                  className="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white text-gray-900"
+                  className="w-full p-4 border border-gray-300 rounded-2xl text-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white text-gray-900"
                 />
               </div>
             </div>
@@ -394,10 +394,10 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
     <section className={cn('py-20 px-4 sm:px-6 lg:px-8 xl:px-4', className)}>
       <div className="w-full">
         <div className="max-w-6xl mx-auto lg:max-w-none xl:max-w-none">
-          <div className="bg-muted rounded-2xl p-8 lg:p-12 shadow-lg">
+          <div className="bg-muted rounded-4xl p-8 lg:p-12 shadow-lg">
             <div className="grid lg:grid-cols-2 gap-8 min-h-[600px]">
               {/* Left Side - Information */}
-              <div className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-2xl p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
+              <div className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-4xl p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-orange-500 opacity-20">
                   <div className="absolute top-10 left-10 w-32 h-32 bg-orange-400 rounded-full opacity-30"></div>
                   <div className="absolute bottom-10 right-10 w-24 h-24 bg-orange-300 rounded-full opacity-40"></div>
@@ -446,7 +446,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                   {currentStep > 1 && currentStep <= totalSteps && (
                     <button
                       onClick={prevStep}
-                      className="px-6 py-3 rounded-lg font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+                      className="px-6 py-3 rounded-2xl font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
                     >
                       Назад
                     </button>
@@ -457,7 +457,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                       onClick={nextStep}
                       disabled={!isStepValid()}
                       className={cn(
-                        'px-8 py-3 rounded-lg font-medium text-white transition-colors ml-auto',
+                        'px-8 py-3 rounded-2xl font-medium text-white transition-colors ml-auto',
                         isStepValid()
                           ? 'bg-accent hover:bg-accent/90'
                           : 'bg-gray-300 cursor-not-allowed'
@@ -470,7 +470,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                       onClick={nextStep}
                       disabled={!isStepValid()}
                       className={cn(
-                        'px-8 py-3 rounded-lg font-medium text-white transition-colors ml-auto',
+                        'px-8 py-3 rounded-2xl font-medium text-white transition-colors ml-auto',
                         isStepValid()
                           ? 'bg-accent hover:bg-accent/90'
                           : 'bg-gray-300 cursor-not-allowed'
@@ -483,7 +483,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                       onClick={handleSubmit}
                       disabled={!isStepValid()}
                       className={cn(
-                        'px-8 py-3 rounded-lg font-medium text-white transition-colors ml-auto',
+                        'px-8 py-3 rounded-2xl font-medium text-white transition-colors ml-auto',
                         isStepValid()
                           ? 'bg-accent hover:bg-accent/90'
                           : 'bg-gray-300 cursor-not-allowed'
@@ -516,7 +516,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl"
+              className="bg-white rounded-4xl p-8 max-w-md w-full mx-4 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="text-center">
@@ -567,7 +567,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
                   onClick={() => setShowSuccessModal(false)}
-                  className="w-full bg-accent text-white py-3 px-6 rounded-lg font-medium hover:bg-accent/90 transition-colors duration-200 druk-font"
+                  className="w-full bg-accent text-white py-3 px-6 rounded-2xl font-medium hover:bg-accent/90 transition-colors duration-200 druk-font"
                 >
                   Закрыть
                 </motion.button>
