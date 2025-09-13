@@ -31,9 +31,9 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
   }, [])
 
   const navItems = [
-    { label: 'Сколько стоит', href: '#pricing' },
-    { label: 'Проекты', href: '#projects' },
-    { label: 'О нас', href: '#about' },
+    { label: 'Сколько стоит', href: '/#services' },
+    { label: 'Проекты', href: '/#projects' },
+    { label: 'О нас', href: '/#process' },
   ]
 
   return (
@@ -56,14 +56,14 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         <div className="max-w-6xl mx-auto lg:max-w-none xl:max-w-none">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
             <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center">
               <div className="w-6 h-6 bg-white rounded relative">
                 <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-white rounded-full"></div>
               </div>
             </div>
             <span className="text-foreground font-medium text-2xl druk-font">Студия</span>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-12">

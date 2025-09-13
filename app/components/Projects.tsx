@@ -69,7 +69,7 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
   ]
 
   return (
-    <section className={cn("pt-2 pb-20 px-2 sm:px-4 lg:px-6 xl:px-2", className)}>
+    <section id="projects" className={cn("pt-0 pb-20 px-2 sm:px-4 lg:px-6 xl:px-2", className)}>
       <div className="w-full">
         <motion.div
           variants={containerVariants}

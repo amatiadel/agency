@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
+import DotGrid from './DotGrid'
 
 interface Hero3Props {
   className?: string
@@ -84,16 +85,30 @@ const Hero3: React.FC<Hero3Props> = ({ className }) => {
   }
 
   return (
-    <section className={cn('flex items-center justify-center py-12', className)}>
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-4">
+    <section className={cn('flex items-center justify-center min-h-screen relative', className)}>
+      {/* DotGrid Background */}
+      <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1 }}>
+        <DotGrid
+          dotSize={10}
+          gap={15}
+          baseColor="#1A1A1A"
+          activeColor="#FF3D00"
+          proximity={120}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={1.5}
+        />
+      </div>
+      
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-4 relative z-10">
         <div className="max-w-6xl mx-auto lg:max-w-none xl:max-w-none">
-          <div className="card gradient-background">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="text-left space-y-30 w-full"
-            >
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center space-y-30 w-full"
+          >
             {/* Main Heading with Rotating Text */}
             <motion.div variants={itemVariants} className="space-y-30">
               <div className="relative">
@@ -101,7 +116,7 @@ const Hero3: React.FC<Hero3Props> = ({ className }) => {
                   <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-black text-foreground leading-tight druk-font">
                     <span>мы делаем</span>
                   </h1>
-                  <div className="relative min-h-12 sm:min-h-16 lg:min-h-24 xl:min-h-28 w-full flex items-start justify-start rotating-text-container">
+                  <div className="relative min-h-12 sm:min-h-16 lg:min-h-24 xl:min-h-28 w-full flex items-center justify-center rotating-text-container">
                     <span className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl text-accent font-black druk-font">
                       {displayedText}
                       <motion.span
@@ -125,7 +140,7 @@ const Hero3: React.FC<Hero3Props> = ({ className }) => {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-6 justify-end items-end mt-40"
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-40"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -145,7 +160,6 @@ const Hero3: React.FC<Hero3Props> = ({ className }) => {
             </motion.div>
 
           </motion.div>
-          </div>
         </div>
       </div>
     </section>

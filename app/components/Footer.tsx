@@ -90,7 +90,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           <motion.div variants={itemVariants} className="relative flex flex-col lg:flex-row justify-between items-center pt-8 gap-4">
             {/* Privacy Policy */}
             <a 
-              href="#privacy" 
+              href="/pp" 
               className="text-gray-300 hover:text-white transition-colors duration-200 text-lg order-1 lg:order-1"
             >
               Политика конфиденциальности
