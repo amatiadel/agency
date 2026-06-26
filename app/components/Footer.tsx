@@ -34,20 +34,20 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   }
 
   return (
-    <footer className={cn('w-full py-16 px-1 sm:px-2 lg:px-4', className)}>
+    <footer className={cn('w-full py-4 px-1 sm:px-2 lg:px-4', className)}>
       <div className="max-w-none mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="rounded-3xl p-10 lg:p-16 shadow-2xl"
+          className="rounded-t-3xl lg:rounded-3xl p-4 lg:p-6 shadow-2xl"
           style={{ backgroundColor: '#1A1A1A' }}
         >
           {/* Header Section */}
-          <motion.div variants={itemVariants} className="relative flex flex-col lg:flex-row justify-between items-center mb-12">
+          <motion.div variants={itemVariants} className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-4 gap-6">
             {/* Logo */}
-            <div className="mb-6 lg:mb-0">
+            <div className="text-center lg:text-left">
               <a 
                 href="#top" 
                 className="text-white text-3xl lg:text-4xl font-bold druk-font hover:text-blue-400 transition-colors duration-200 cursor-pointer"
@@ -60,12 +60,13 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               </a>
             </div>
 
-            {/* Contact Info - Centered */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 text-center mb-6 lg:mb-0">
-              <p className="text-gray-300 text-lg">
-                Ваши предложения: <a 
+            {/* Contact Info */}
+            <div className="text-center">
+              <p className="text-gray-300 text-base lg:text-lg">
+                Ваши предложения:{' '}
+                <a 
                   href="mailto:info@agency.ru" 
-                  className="text-white text-2xl lg:text-3xl font-bold hover:text-blue-400 transition-colors duration-200"
+                  className="text-white text-xl lg:text-3xl font-bold hover:text-blue-400 transition-colors duration-200 block sm:inline mt-2 sm:mt-0"
                 >
                   info@agency.ru
                 </a>
@@ -73,35 +74,35 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
             </div>
 
             {/* Navigation Links */}
-            <div className="flex flex-col sm:flex-row gap-6 lg:gap-8">
-              <a href="#projects" className="text-gray-300 hover:text-white transition-colors duration-200 text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 lg:gap-8 text-center lg:text-left">
+              <a href="#projects" className="text-gray-300 hover:text-white transition-colors duration-200 text-base lg:text-lg">
                 Примеры работ
               </a>
-              <a href="#process" className="text-gray-300 hover:text-white transition-colors duration-200 text-lg">
+              <a href="#process" className="text-gray-300 hover:text-white transition-colors duration-200 text-base lg:text-lg">
                 По шагам. Как все пройдет
               </a>
-              <a href="#services" className="text-gray-300 hover:text-white transition-colors duration-200 text-lg">
+              <a href="#services" className="text-gray-300 hover:text-white transition-colors duration-200 text-base lg:text-lg">
                 Сколько стоит
               </a>
             </div>
           </motion.div>
 
           {/* Bottom Section */}
-          <motion.div variants={itemVariants} className="relative flex flex-col lg:flex-row justify-between items-center pt-8 gap-4">
+          <motion.div variants={itemVariants} className="flex flex-col lg:flex-row lg:justify-between lg:items-center pt-4 border-t border-gray-700 gap-6">
             {/* Privacy Policy */}
             <a 
               href="/pp" 
-              className="text-gray-300 hover:text-white transition-colors duration-200 text-lg order-1 lg:order-1"
+              className="text-gray-300 hover:text-white transition-colors duration-200 text-base lg:text-lg text-center lg:text-left"
             >
               Политика конфиденциальности
             </a>
 
-            {/* CTA Buttons - Centered */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-4 order-2 lg:order-2">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-white px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-xl"
+                className="text-white px-4 sm:px-6 py-3 rounded-xl font-semibold text-base lg:text-lg transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto"
                 style={{ backgroundColor: '#FF3D00' }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E03500'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FF3D00'}
@@ -111,7 +112,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-white px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-xl"
+                className="text-white px-4 sm:px-6 py-3 rounded-xl font-semibold text-base lg:text-lg transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto"
                 style={{ backgroundColor: '#FF3D00' }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E03500'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FF3D00'}
@@ -121,7 +122,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
             </div>
 
             {/* Legal Information */}
-            <div className="text-gray-300 text-sm lg:text-base text-center lg:text-right order-3 lg:order-3">
+            <div className="text-gray-300 text-xs sm:text-sm lg:text-base text-center lg:text-right">
               <p>ИП Мокрани Кристина Алехсандровна</p>
               <p>ИНН 246413832108 | ОГРНИП 317246800066961</p>
             </div>

@@ -330,7 +330,6 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
                   <option value="telegram">Telegram</option>
                   <option value="whatsapp">WhatsApp</option>
                   <option value="phone">Телефон</option>
-                  <option value="email">Email</option>
                 </select>
               </div>
 
@@ -354,6 +353,9 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
               </div>
 
               <div>
+                <label className="block text-lg font-medium text-foreground mb-2">
+                  Как мы можем к вам обращаться?
+                </label>
                 <input
                   type="text"
                   value={formData.name}
@@ -391,7 +393,7 @@ const QuizForm: React.FC<QuizFormProps> = ({ className }) => {
   }
 
   return (
-    <section className={cn('py-20 px-4 sm:px-6 lg:px-8 xl:px-4', className)}>
+    <section className={cn('py-20 px-4 sm:px-6 lg:px-8 xl:px-4 bg-black', className)}>
       <div className="w-full">
         <div className="max-w-6xl mx-auto lg:max-w-none xl:max-w-none">
           <div className="bg-muted rounded-4xl p-8 lg:p-12 shadow-lg">

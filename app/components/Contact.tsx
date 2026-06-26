@@ -1,142 +1,134 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { cn } from '@/lib/utils'
+import Link from "next/link";
+import Image from "next/image";
+import { monaSans } from "../fonts/monaSans";
+import "./animations/animate.css";
+import AnimatedBody from "./animations/AnimatedBody";
+import AnimatedTitle from "./animations/AnimatedTitle";
+import AnimatedWords2 from "./animations/AnimatedWords2";
+import { motion } from "framer-motion";
 
 interface ContactProps {
-  className?: string
+  className?: string;
 }
 
 const Contact: React.FC<ContactProps> = ({ className }) => {
-  const [runawayCount, setRunawayCount] = useState(0)
-  const [buttonPosition, setButtonPosition] = useState({ top: '50%', left: '50%' })
-
-  const getRandomNumber = (max: number) => {
-    return Math.floor(Math.random() * (max + 1))
-  }
-
-  // Return to center when runawayCount reaches 5
-  useEffect(() => {
-    if (runawayCount === 5) {
-      setTimeout(() => {
-        setButtonPosition({ top: '50%', left: '50%' })
-      }, 500)
-    }
-  }, [runawayCount])
-
-  const handleMouseEnter = () => {
-    if (runawayCount < 5) {
-      const sectionElement = document.querySelector('section')
-      if (sectionElement) {
-        const rect = sectionElement.getBoundingClientRect()
-        const buttonWidth = 200
-        const buttonHeight = 80
-        
-        const maxTop = rect.height - buttonHeight
-        const maxLeft = rect.width - buttonWidth
-        
-        const newTop = getRandomNumber(Math.max(0, maxTop))
-        const newLeft = getRandomNumber(Math.max(0, maxLeft))
-        
-        // Convert to percentage
-        const topPercent = (newTop / rect.height) * 100
-        const leftPercent = (newLeft / rect.width) * 100
-        
-        setButtonPosition({ 
-          top: `${Math.max(10, Math.min(90, topPercent))}%`, 
-          left: `${Math.max(10, Math.min(90, leftPercent))}%` 
-        })
-        
-        setRunawayCount(prev => prev + 1)
-      }
-    }
-  }
-
-  const handleButtonClick = () => {
-    // Only allow clicking after 5 runaway attempts
-    if (runawayCount >= 5) {
-      // Handle the actual button click action here
-      console.log('Button clicked!')
-      // You can add your actual click functionality here
-    }
-  }
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  }
-
   return (
-    <section className={cn("pt-2 pb-20 px-2 sm:px-4 lg:px-6 xl:px-2", className)}>
-      <div className="w-full">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="p-8 sm:p-12 lg:p-16"
+    <motion.section
+      className={`relative z-10 flex h-[95vh] w-full items-center justify-center overflow-hidden bg-black bg-cover bg-center py-4 md:h-[80vh] md:py-4 lg:h-[90vh] lg:pt-0 lg:pb-4 3xl:h-[75vh] ${className || ''}`}
+      id="contact"
+      initial="initial"
+      animate="animate"
+    >
+      <div className="mx-auto flex w-[90%] flex-col items-center justify-center pt-10 md:pt-0">
+        <div
+          className={`flex flex-col items-start justify-center ${monaSans.className} relative w-full sm:items-center lg:max-w-[1440px]`}
         >
-          <motion.div variants={itemVariants} className="space-y-16">
-            {/* Big Title */}
-            <div className="space-y-6">
-              <motion.h2 
-                variants={itemVariants}
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-foreground leading-tight text-center druk-font"
-                style={{ 
-                  fontSize: 'clamp(2.5rem, 6vw, 8rem)',
-                  lineHeight: '0.9'
-                }}
+          <AnimatedWords2
+            title={"Let's Talk"}
+            style={
+              "flex max-w-[500px] flex-col items-start text-left text-[150px] font-extrabold uppercase leading-[0.9em] text-[#e4ded7] sm:max-w-full sm:flex-row sm:items-center sm:justify-center sm:text-center sm:text-[170px] md:text-[200px] lg:text-center lg:text-[270px] xl:text-[390px]"
+            }
+          />
+          <Image
+            src="/heart icon.png"
+            alt="Heart Icon"
+            width={230}
+            height={230}
+            className="heartbeat md:-bottom-18 absolute -bottom-5 left-64 w-[120px] sm:-bottom-14 sm:left-[40%] md:left-[40%] md:w-[150px] lg:-bottom-16 lg:left-[42%] lg:w-[230px]"
+          />
+        </div>
+
+        <div className="mt-20 flex w-full flex-col items-end justify-center gap-16 sm:mt-32 sm:gap-12 md:mt-40 md:flex-row md:items-start md:justify-between lg:mt-12 lg:max-w-[1440px]">
+          <div className="flex w-[350px] max-w-[90%] flex-col items-end text-right text-[14px] font-semibold uppercase text-[#e4ded7] sm:w-[350px] sm:text-[14px] md:w-[310px] md:items-start md:text-left md:text-[16px] lg:w-[420px] lg:text-[16px]">
+            <AnimatedBody
+              text={
+                "Got a question, proposal, project, or want to work together on something?"
+              }
+              className={
+                "-mb-1 inline-block overflow-hidden pt-1 sm:-mb-2 md:-mb-3 lg:-mb-4"
+              }
+            />
+            <div className="border mt-5 flex w-[298px] items-center gap-1 md:w-[335px] md:gap-2.5">
+              <Link
+                href="mailto:contact@example.com?subject=Lets%20work%20together!&body=Hello%2C%20I%20think%20we%20need%20you%20to%20work%20on%2Fcollaborate%20this%20particular%20product...%20Reach%20out%20as%20soon%20as%20you%20can."
+                target="_blank"
+                aria-label="Send me an email"
+                className="mt-1 w-[147px] flex-1 underline underline-offset-2 hover:no-underline sm:mt-2 sm:w-[170px] md:mt-3 lg:mt-4"
               >
-                ПОЗНАКОМИТЬСЯ!
-              </motion.h2>
+                <AnimatedBody
+                  text={"Send me an email"}
+                  className={"w-[190px] pr-[40px] md:w-[170px] md:pr-0"}
+                />
+              </Link>
+              <AnimatedBody
+                text={"or"}
+                className={
+                  "-mb-1 ml-2 inline-block overflow-hidden sm:-mb-2 md:-ml-[8px] md:-mb-3 lg:-mb-4"
+                }
+              />
+              <Link
+                href="#quiz-form"
+                aria-label="Book a call or contact form"
+                className="mt-1 w-[110px] flex-1 underline underline-offset-2 hover:no-underline sm:mt-2 sm:w-[147px] md:mt-3 md:-ml-[3px] md:w-[120px] lg:mt-4"
+              >
+                <AnimatedBody
+                  text={"Book a call"}
+                  className={"w-[110px] md:w-[120px]"}
+                />
+              </Link>
+            </div>
             </div>
 
-            {/* Big Button */}
-            <motion.div 
-              variants={itemVariants}
-              className="relative w-full h-96 flex justify-center items-center"
+          <div className="flex gap-10 text-[16px] font-bold text-[#e4ded7] sm:gap-14 sm:text-[24px] md:gap-10 md:text-[16px] lg:gap-20 lg:text-[28px]">
+            <Link
+              href="https://github.com"
+              target="_blank"
+              aria-label="View GitHub Profile"
             >
-              <motion.button
-                onClick={handleButtonClick}
-                onMouseEnter={handleMouseEnter}
-                whileHover={runawayCount >= 5 ? { scale: 1.05 } : {}}
-                whileTap={runawayCount >= 5 ? { scale: 0.95 } : {}}
-                className={`absolute bg-accent text-white px-12 py-6 rounded-2xl font-bold text-2xl sm:text-3xl lg:text-4xl hover:bg-accent/90 transition-all duration-500 ease-out shadow-lg druk-font ${
-                  runawayCount >= 5 ? 'cursor-pointer' : 'cursor-default'
-                }`}
-                style={{
-                  top: buttonPosition.top,
-                  left: buttonPosition.left,
-                  transform: 'translate(-50%, -50%)'
-                }}
-              >
-                НАПИСАТЬ
-              </motion.button>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+              <AnimatedTitle
+                text={"GitHub"}
+                className={
+                  "text-[16px] font-bold text-[#e4ded7] sm:text-[20px] md:text-[16px] lg:text-[28px]"
+                }
+                wordSpace={"mr-[0.25em]"}
+                charSpace={"mr-[0.01em]"}
+              />
+            </Link>
+            <Link
+              href="https://www.TELEGRAM.com"
+              target="_blank"
+              aria-label="Write to us by telegram"
+            >
+              <AnimatedTitle
+                text={"Telegram"}
+                className={
+                  "text-[16px] font-bold text-[#e4ded7] sm:text-[20px] md:text-[16px] lg:text-[28px]"
+                }
+                wordSpace={"mr-[0.25em]"}
+                charSpace={"mr-[0.01em]"}
+              />
+            </Link>
+            <Link
+              href="mailto:info@agency.ru"
+              target="_blank"
+              aria-label="Write to us by email"
+            >
+              <AnimatedTitle
+                text={"EMAIL"}
+                className={
+                  "text-[16px] font-bold text-[#e4ded7] sm:text-[20px] md:text-[16px] lg:text-[28px]"
+                }
+                wordSpace={"mr-[0.25em]"}
+                charSpace={"mr-[0.01em]"}
+              />
+            </Link>
+          </div>
+        </div>
       </div>
-    </section>
-  )
-}
+    </motion.section>
+  );
+};
 
-export default Contact
+export default Contact;

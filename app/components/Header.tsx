@@ -39,22 +39,24 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
   return (
      <header
        className={cn(
-         'bg-muted rounded-b-4xl',
+         'rounded-b-4xl backdrop-blur-xl border border-white/10',
          className
        )}
        style={{
          position: 'absolute',
-         top: 0,
+         top: '1rem',
          left: '1rem',
          right: '1rem',
          zIndex: 1000,
          transform: 'translateZ(0)',
-         willChange: 'transform'
+         willChange: 'transform',
+         background: 'rgba(255, 255, 255, 0.02)',
+         boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)'
        }}
      >
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-4">
+      <div className="w-full px-2 sm:px-3 lg:px-4 xl:px-2">
         <div className="max-w-6xl mx-auto lg:max-w-none xl:max-w-none">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
             <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center">
@@ -62,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
                 <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-white rounded-full"></div>
               </div>
             </div>
-            <span className="text-foreground font-medium text-2xl druk-font">Студия</span>
+            <span className="text-white font-medium text-2xl druk-font">Студия</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -72,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
                 key={item.label}
                 href={item.href}
                 whileHover={{ y: -2 }}
-                className="text-gray-300 hover:text-foreground transition-colors duration-200 font-medium text-lg"
+                className="text-white/80 hover:text-white transition-colors duration-200 font-medium text-lg"
               >
                 {item.label}
               </motion.a>
@@ -89,9 +91,9 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={toggleMenu}
-            className="md:hidden p-2 hover:bg-gray-700 transition-colors duration-200 rounded-2xl"
+            className="md:hidden p-2 hover:bg-white/10 transition-colors duration-200 rounded-2xl"
           >
-            {isMenuOpen ? <X size={24} className="text-gray-300" /> : <Menu size={24} className="text-gray-300" />}
+            {isMenuOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
           </motion.button>
         </div>
 
@@ -103,12 +105,12 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden"
           >
-            <nav className="py-4 space-y-4">
+            <nav className="py-2 space-y-2">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="block text-gray-300 hover:text-foreground transition-colors duration-200 font-medium text-lg"
+                  className="block text-white/80 hover:text-white transition-colors duration-200 font-medium text-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}

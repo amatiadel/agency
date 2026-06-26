@@ -1,6 +1,6 @@
 import Header from './components/Header'
-import Hero3 from './components/Hero3'
-import Projects from './components/Projects'
+import Hero4 from './components/Hero4'
+import Work from './work-section/Work'
 import Process from './components/Process'
 import ServicesPricing from './components/ServicesPricing'
 import Contact from './components/Contact'
@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="min-h-screen pt-20">
-        <Hero3 />
-        <Projects />
+      <main className="min-h-screen">
+        <Hero4 />
+        <Work />
         <Process />
         <ServicesPricing />
         <QuizForm />

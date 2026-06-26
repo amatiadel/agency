@@ -67,7 +67,7 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ className }) => {
   return (
     <section id="services" className={cn('pt-0 pb-20', className)}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="max-w-none mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+        <div className="max-w-none mx-auto px-8 sm:px-12 lg:px-16 xl:px-20 bg-black">
           <motion.div
             ref={ref}
             variants={containerVariants}

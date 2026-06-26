@@ -55,14 +55,14 @@ const Process: React.FC<ProcessProps> = ({ className }) => {
   ]
 
   return (
-    <section id="process" className={cn("pb-20 px-4 sm:px-6 lg:px-8 xl:px-4 hidden sm:block", className)} style={{ paddingTop: '1px' }}>
+    <section id="process" className={cn("pb-20 px-4 sm:px-6 lg:px-8 xl:px-4 hidden sm:block bg-black", className)} style={{ paddingTop: '1px' }}>
       <div className="max-w-6xl mx-auto lg:max-w-none xl:max-w-none">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="card p-8 sm:p-12 lg:p-16"
+          className="card p-8 sm:p-12 lg:p-16 bg-black"
         >
           <motion.div variants={itemVariants} className="space-y-12">
             {/* Header */}

@@ -76,7 +76,7 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="p-8 sm:p-12 lg:p-16"
+          className="p-8 sm:p-12 lg:p-16 bg-black"
         >
           <motion.div variants={itemVariants} className="space-y-12">
             {/* Header */}
